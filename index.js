@@ -25,7 +25,7 @@ app.post('/sendSms', function (req, res) {
 	
 const { recipient, message } = req.body
 //---Validation
-var phoneno = /^\d{13}$/
+var phoneno = /^+\d{12}$/
 
   if(!recipient.match(phoneno)){
   	 res.status(500).send('Invalid phone number!')
