@@ -23,7 +23,7 @@ app.get('/', (req, res) => res.send('Hello World!'))
 app.post('/sendSms', function (req, res) {
 	console.log(req.body)
 	
-const { recipient, message, from } = req.body
+const { recipient, message } = req.body
 //---Validation
 var phoneno = /^\+?\d{12}$/
 
@@ -45,8 +45,7 @@ const sms = AfricasTalking.SMS
 // Use the service
 const option = {
 	to: ""+recipient,    
-    message: message,
-    from: from
+    message: message
 }
 
 // Send message and capture the response or error
