@@ -45,8 +45,8 @@ const sms = AfricasTalking.SMS
 // Use the service
 const option = {
 	to: ""+recipient,    
-    message: message
-    // from: "OPANDA"
+    message: message,
+    from: "OPANDA"
 }
 
 // Send message and capture the response or error
