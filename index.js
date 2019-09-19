@@ -60,7 +60,7 @@ sms.send(option)
     })
     .catch( error => {
         console.log(error);
-       res.status(500).send('Message Send Failure!')
+       res.status(500).send(error)
     });
 
 
