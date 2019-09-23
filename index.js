@@ -33,18 +33,11 @@ const { recipient, message, from } = req.body
 
   //}
 var numbers = recipient.split(",")
-  numbers.forEach(myFunction);
-  numbers_clean="";
-
-function myFunction(item, index) {
-  //document.getElementById("demo").innerHTML += index + ":" + item + "<br>";
-  if(numbers_clean==""){
-     numbers_clean="'"+item+"'";
-  }else{
-  	numbers_clean=numbers_clean+","+"'"+item+"'";
-
+var numbers_clean= [];
+  for (var i = numbers.length - 1; i >= 0; i--) {
+    numbers_clean.push("'"+numbers[i].toString()+"'")
   }
-}
+var recipients = numbers_clean.join()
   if(message==""){
   	 res.status(500).send('Empty message!')
   	 return;
@@ -56,7 +49,7 @@ const sms = AfricasTalking.SMS
 
 // Use the service
 const option = {
-	to: "["+numbers_clean+"]",    
+	to: "["+recipients+"]",    
     message: message,
     from: from
 }
