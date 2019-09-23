@@ -11,7 +11,7 @@ const options = {
 const AfricasTalking = require('africastalking')(options);
 const app = express(),
    bodyParser = require('body-parser');
-const port =  3000
+const port = process.env.PORT || 3000
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded());
 
@@ -32,12 +32,13 @@ const { recipient, message, from } = req.body
   	 ////return;
 
   //}
-var numbers = recipient.split(",")
-var numbers_clean= [];
+const numbers = recipient.split(",")
+let numbers_clean= [];
   for (var i = numbers.length - 1; i >= 0; i--) {
-    numbers_clean.push("'"+numbers[i].toString()+"'")
+    numbers_clean.push(""+numbers[i].toString()+"")
   }
-var recipients = "["+numbers_clean.join()+"]"
+  //console.log(numbers_clean);
+//const recipients_p = "["+numbers_clean.join()+"]"
 //var objPhone=JSON.parse(recipients);
   if(message==""){
   	 res.status(500).send('Empty message!')
@@ -49,14 +50,14 @@ var recipients = "["+numbers_clean.join()+"]"
 const sms = AfricasTalking.SMS
 
 // Use the service
-const option = {
-	to: recipients,    
+const optionpppp = {
+	to: numbers_clean,    
     message: message,
     from: from
 }
 
 // Send message and capture the response or error
-sms.send(option)
+sms.send(optionpppp)
     .then( response => {
         console.log(response);
         res.status(200).send({
