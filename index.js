@@ -32,7 +32,19 @@ const { recipient, message, from } = req.body
   	 ////return;
 
   //}
+var numbers = recipient.split(",")
+  numbers.forEach(myFunction);
+  numbers_clean="";
 
+function myFunction(item, index) {
+  //document.getElementById("demo").innerHTML += index + ":" + item + "<br>";
+  if(numbers_clean==""){
+     numbers_clean="'"+item+"'";
+  }else{
+  	numbers_clean=numbers_clean+","+"'"+item+"'";
+
+  }
+}
   if(message==""){
   	 res.status(500).send('Empty message!')
   	 return;
@@ -44,7 +56,7 @@ const sms = AfricasTalking.SMS
 
 // Use the service
 const option = {
-	to: "["+recipient+"]",    
+	to: "["+numbers_clean+"]",    
     message: message,
     from: from
 }
