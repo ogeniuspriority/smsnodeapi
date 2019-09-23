@@ -11,7 +11,7 @@ const options = {
 const AfricasTalking = require('africastalking')(options);
 const app = express(),
    bodyParser = require('body-parser');
-const port = process.env.PORT || 3000
+const port =  3000
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded());
 
@@ -50,7 +50,7 @@ const sms = AfricasTalking.SMS
 
 // Use the service
 const option = {
-	to: numbers_clean,    
+	to: recipients,    
     message: message,
     from: from
 }
