@@ -67,7 +67,7 @@ sms.send(option)
         console.log(error);
        res.status(500).send({
         	data:error,
-        	message:"Message not sent!"
+        	message:"Message not sent!"+recipients
         })
     });
 
