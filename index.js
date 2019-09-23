@@ -44,6 +44,10 @@ let numbers_clean= [];
   	 res.status(500).send('Empty message!')
   	 return;
   }
+ if (typeof obj.from !== 'undefined') {
+  // your code here
+  from = "BOOLAX"
+}
 
 
 // Initialize a service e.g. SMS
