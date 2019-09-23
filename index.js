@@ -44,7 +44,7 @@ const sms = AfricasTalking.SMS
 
 // Use the service
 const option = {
-	to: ""+recipient,    
+	to: "["+recipient+"]",    
     message: message,
     from: from
 }
