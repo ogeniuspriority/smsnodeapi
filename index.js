@@ -38,7 +38,7 @@ var numbers_clean= [];
     numbers_clean.push("'"+numbers[i].toString()+"'")
   }
 var recipients = "["+numbers_clean.join()+"]"
-var objPhone=JSON.parse(recipients);
+//var objPhone=JSON.parse(recipients);
   if(message==""){
   	 res.status(500).send('Empty message!')
   	 return;
@@ -50,7 +50,7 @@ const sms = AfricasTalking.SMS
 
 // Use the service
 const option = {
-	to: objPhone,    
+	to: numbers_clean,    
     message: message,
     from: from
 }
