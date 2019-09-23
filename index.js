@@ -44,9 +44,10 @@ let numbers_clean= [];
   	 res.status(500).send('Empty message!')
   	 return;
   }
- if (typeof obj.from !== 'undefined') {
+  var from_new="";
+ if (typeof from == 'undefined') {
   // your code here
-  from = "BOOLAX"
+  from_new = "BOOLAX"
 }
 
 
@@ -57,7 +58,7 @@ const sms = AfricasTalking.SMS
 const optionpppp = {
 	to: numbers_clean,    
     message: message,
-    from: from
+    from: (from_new=="")?from:from_new
 }
 
 // Send message and capture the response or error
